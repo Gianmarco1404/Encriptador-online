@@ -89,11 +89,11 @@ function validarTextoEscrito() {
     });
     textArea.addEventListener('paste', function (e) {
         // Manejar el evento de pegado
-        let pastedText = e.clipboardData.getData('text');    
-        if(!(/^[a-zñ\s]$/.test(pastedText))){
+        let textoPegado = e.clipboardData.getData('text');    
+        if(!/^[a-zñ\s]+$/.test(textoPegado)){
             textArea.value=''
+            e.preventDefault();
         }
-        e.preventDefault();
     });
 }
 validarTextoEscrito()
